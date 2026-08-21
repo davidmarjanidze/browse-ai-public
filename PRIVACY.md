@@ -20,11 +20,19 @@ This data is used only to provide BrowseAI's page-aware and general chat feature
 
 BrowseAI does not persist page content, prompts, or responses. Chat data is held in memory only for the current page session and is removed when the page reloads, the tab closes, or the chat is cleared.
 
+BrowseAI uses the storage permission to persist user-controlled local settings across websites and browser sessions. "Personalization settings" means: (1) your optional nickname, used only to address you in responses, and (2) your optional custom instructions, used only to guide response style and behavior (for example tone, formatting preferences, or constraints you define). These settings are written only to chrome.storage.local on your device, are read only when needed to render UI or build prompts, and are never transmitted to external servers.
+
 ## Data Transmission and Sharing
 
 BrowseAI does not transmit page content, browsing information, prompts, or responses to the developer or to third-party servers. It does not sell, share, or use user data for advertising, analytics, creditworthiness, or purposes unrelated to its single purpose.
 
 Chrome may download and manage its built-in language model as part of the browser. BrowseAI does not send page content or prompts as part of that model download.
+
+## Responsible Use and Accuracy Disclaimer
+
+BrowseAI is an assistive tool and includes custom tools that may generate or return incorrect, incomplete, misleading, or outdated outputs. Users are responsible for reviewing and verifying outputs before relying on them, especially for legal, financial, medical, security, or other high-impact decisions.
+
+BrowseAI must not be used for unlawful, harmful, deceptive, or unauthorized activities, including misuse of third-party content or services. The developer is not responsible for user misuse of the extension or for consequences resulting from mistakes in AI-generated output or custom tool output.
 
 ## Site Access
 
