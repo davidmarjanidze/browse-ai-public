@@ -20,11 +20,15 @@ This data is used only to provide BrowseAI's page-aware and general chat feature
 
 BrowseAI does not persist page content, prompts, or responses. Chat data is held in memory only for the current page session and is removed when the page reloads, the tab closes, or the chat is cleared.
 
+Screenshot and audio attachments are also kept in memory only for the current page session (or until you remove them) and are not stored as persistent files by BrowseAI.
+
 BrowseAI uses the storage permission to persist user-controlled local settings across websites and browser sessions. "Personalization settings" means: (1) your optional nickname, used only to address you in responses, and (2) your optional custom instructions, used only to guide response style and behavior (for example tone, formatting preferences, or constraints you define). These settings are written only to chrome.storage.local on your device, are read only when needed to render UI or build prompts, and are never transmitted to external servers.
 
 ## Data Transmission and Sharing
 
 BrowseAI does not transmit page content, browsing information, prompts, or responses to the developer or to third-party servers. It does not sell, share, or use user data for advertising, analytics, creditworthiness, or purposes unrelated to its single purpose.
+
+This same local-only rule applies to screenshot and audio attachments used in multimodal prompts: they are processed on-device and are not transmitted to external servers by BrowseAI.
 
 Chrome may download and manage its built-in language model as part of the browser. BrowseAI does not send page content or prompts as part of that model download.
 
@@ -37,6 +41,16 @@ BrowseAI must not be used for unlawful, harmful, deceptive, or unauthorized acti
 ## Site Access
 
 BrowseAI runs on websites the user visits so it can display its assistant and, when the user opens it, read the current page content needed for page-aware answers. This access is used only for the extension's user-facing features.
+
+## Extension Permissions
+
+BrowseAI requests only the permissions needed for its visible features:
+
+- storage: Saves user-controlled local settings (nickname and custom instructions) and optional AI Bookmarks data (category -> list of local {title, url} entries) in chrome.storage.local.
+- activeTab: Enables user-initiated screenshot actions (for example, Capture Visible Area and Snip & Capture) on the tab you are currently using.
+- tabs: Used with activeTab to capture the visible portion of the current tab window during screenshot attachment.
+
+Screenshot data is captured only after a direct user action, used only to answer the current prompt, and is not transmitted to external servers.
 
 ## Changes
 
